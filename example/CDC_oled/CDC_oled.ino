@@ -10,10 +10,12 @@
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
+void logoshow(void);
+
 void setup()
 {
     USBSerial.begin(115200);
-    USBSerial.println("MaESP C3 begin");
+    USBSerial.println("MaESP C3 begin V1.0");
 
     // LCD
     Wire.begin(C3_SDA, C3_SCL);
@@ -33,19 +35,25 @@ void loop()
 {
     USBSerial.printf("USBSerial %d\n", loop_count);
     loop_count++;
-    delay(2000);
+    delay(1000);
+     logoshow();
+    display.display();
 }
 
 void logoshow(void)
 {
-    display.clearDisplay();
-
-    display.setTextSize(1);              // Normal 1:1 pixel scale
-    display.setTextColor(SSD1306_WHITE); // Draw white text
-    display.setCursor(0, 0);             // Start at top-left corner
-    display.println(F("MaESP ESP32-C3"));
-    display.setCursor(0, 20); // Start at top-left corner
-    display.println(F("OLED TEST DEMO"));
-    display.display();
-    delay(2000);
+  display.clearDisplay();
+  display.setTextSize(1);              // Normal 1:1 pixel scale
+  display.setTextColor(WHITE);
+  display.setTextSize(1.5);
+  display.setCursor(0, 0);
+  display.print(F("Hello! Makers"));   //increase F( ) in onder to put the constant in RAM to avoid the ROW not enough use in the AVR platfrom. variable  didn't use this way.
+  display.setCursor(0, 20);
+  display.print(F("time: "));
+  display.print(millis() / 1000);
+  display.print(F(" s"));
+  display.setCursor(0, 40);
+  display.print(F("Author: "));
+  display.print(F("Makerfabs"));
+      display.display();
 }
