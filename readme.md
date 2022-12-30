@@ -2,10 +2,11 @@
 
 ```c++
 /*
-Version:		V1.1
+Version:		V1.2
 Author:			Vincent
 Create Date:	2022/9/23
 Note:
+	2022/12/30	V1.2: Change wiki link
 	2022/10/26	V1.1: Add product link and wiki link
 */
 ```
@@ -18,7 +19,7 @@ Note:
 
 [Makerfabs home page](https://www.makerfabs.com/)
 
-[Makerfabs Wiki](https://makerfabs.com/wiki/index.php?title=Main_Page)
+[Makerfabs Wiki](https://wiki.makerfabs.com/)
 
 # MaESP ESP32 C3 OLED
 ## Intruduce
@@ -62,19 +63,13 @@ MaESP ESP32 C3 OLED equips with ESP32-C3, which is a single-core Wi-Fi and Bluet
 
 ## Firmware
 
-
-
-
-
-## Example
-
 ### CDC_OLED
 
 Different from the commonly used Arduino, the USB interface is directly connected to the ESP32C3, without CP2104 and other chips.
 
  Therefore, to enable the serial port to send logs normally, use the USBSerial object. This demo show how to use USBSerial and show logo on OLED.
 
-
+## Example
 
 ### NTP_Time
 
